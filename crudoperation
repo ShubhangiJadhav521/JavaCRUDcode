@@ -28,13 +28,13 @@ public class crud {
                 int c=((java.sql.Statement) st).executeUpdate("select* from student_detaile");
 
                 //Insert
-                 c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(101, 'pranaya','sharma',70%)");
+                 c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(101, 'pranaya','sharma','70%')");
                 System.out.println(c + "inserted successfully");
                  c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(102, 'kumar', 'Patil','80%')");
                 System.out.println(c + "more detail inserted successfully");
-                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(103, 'Rahul','Deshmukh',90%)");
+                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(103, 'Rahul','Deshmukh','90%')");
                 System.out.println(c + "more detail inserted successfully");
-                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(104, 'Piyush','Gupta',60%)");
+                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(104, 'Piyush','Gupta','60%')");
                 System.out.println(c + "more detail inserted successfully");
 
                 //Update
