@@ -1,0 +1,58 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class crud {
+    
+    /**
+     * @param args
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public static void main(String[] args) throws ClassNotFoundException, SQLException{
+        Connection conn = null;
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+             conn= DriverManager.getConnection("jdbc:sqlserver:(LocalDB)/MSSQLLocalDB/student",
+                "SHUBHANGI/Admin", "");
+                if (conn != null) {
+                 System.out.println("Connected");
+                }
+                 else{
+                    System.out.println("Error");
+                 }
+                Statement st = (Statement) conn.createStatement();
+                //Select
+                int c=((java.sql.Statement) st).executeUpdate("select* from student_detaile");
+
+                //Insert
+                 c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(101, 'pranaya','sharma',70%)");
+                System.out.println(c + "inserted successfully");
+                 c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(102, 'kumar', 'Patil','80%')");
+                System.out.println(c + "more detail inserted successfully");
+                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(103, 'Rahul','Deshmukh',90%)");
+                System.out.println(c + "more detail inserted successfully");
+                c = ((java.sql.Statement) st).executeUpdate("insert into student_detaile values(104, 'Piyush','Gupta',60%)");
+                System.out.println(c + "more detail inserted successfully");
+
+                //Update
+                int rows = ((java.sql.Statement) st).executeUpdate ("update student_detaile set name='Anil' where id='101'");
+                System.out.println (rows + " rows modified");
+
+                //Delete
+                 c = ((java.sql.Statement) st).executeUpdate ("delete from student_detaile where id='2' " );
+                if (c == 0)    
+                System.out.println ("Detail doesnot exist");  
+                else
+                System.out.println ("deleted successfully");
+                ((Connection) st).close();
+                conn.close();
+ 
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+}
